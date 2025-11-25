@@ -1,0 +1,44 @@
+<main class="login-container">
+  <div class="image-column">
+    <img src="img/ranger.png" alt="Ford Ranger" class="ranger-image">
+  </div>
+
+  <div class="form-column">
+    <img src="img/ford.png" alt="Logo Ford" class="ford-logo">
+    
+    <h2>Boas-vindas</h2>
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="input-group">
+        <input 
+          type="text" 
+          placeholder="Insira seu e-mail" 
+          [(ngModel)]="username" 
+          name="username" 
+          required
+        >
+      </div>
+
+      <div class="input-group">
+        <input 
+          [type]="showPassword ? 'text' : 'password'" 
+          placeholder="Insira sua senha" 
+          [(ngModel)]="password" 
+          name="password" 
+          required
+        >
+      </div>
+
+      <div class="auto-login-toggle">
+        <label>Logar automaticamente</label>
+        <input type="checkbox" [(ngModel)]="autoLogin" name="autoLogin">
+      </div>
+
+      <button type="submit" class="btn-login" >
+        Entrar
+      </button>
+    </form>
+    
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  </div>
+</main>

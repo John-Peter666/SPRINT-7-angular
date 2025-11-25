@@ -1,0 +1,81 @@
+<main class="home-container">
+    <div class="navbar">
+        <img src="img/ford.png" alt="Logo Ford" class="ford-logo-home">
+        
+        <nav>
+            <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+            <a routerLink="/home" class="nav-link">Home</a>
+        </nav>
+        <button class="btn-logout" (click)="logout()">
+            Sair
+        </button>
+    </div>
+
+    <div class="dashboard-content">
+
+        <div class="search-section">
+            <div class="search-card">
+                <label for="vehicle-select">Veículo</label>
+                <select id="vehicle-select" [(ngModel)]="selectedVehicle" (change)="fetchDataForDashboard(selectedVehicle)">
+                    <option *ngFor="let vehicle of availableVehicles" [ngValue]="vehicle">
+                        {{ vehicle }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="cards-section">
+            <div class="data-card">
+                <p class="card-title">Total de Vendas</p>
+                <h3 class="card-value">{{ dashboardData.totalSales }}</h3>
+            </div>
+            <div class="data-card">
+                <p class="card-title">Conectados</p>
+                <h3 class="card-value">{{ dashboardData.connectedVehicles }}</h3>
+            </div>
+            <div class="data-card">
+                <p class="card-title">Software Atualizado</p>
+                <h3 class="card-value">{{ dashboardData.updatedSoftware }}</h3>
+            </div>
+        </div>
+
+        <div class="main-display">
+            <div class="vehicle-display">
+                <img [src]="vehicleImageUrl" [alt]="selectedVehicle" class="vehicle-image">
+            </div>
+
+            <div class="table-section">
+                <h4>Dados de Veículos</h4>
+                <input 
+                    type="text" 
+                    placeholder="Buscar por código do veículo..." 
+                    [(ngModel)]="tableSearchQuery" 
+                    (keyup)="filterTableData()" 
+                    class="table-search-input"
+                >
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Código do Veículo</th>
+                            <th>Modelo</th>
+                            <th>Status</th>
+                            <th>Última Atualização</th>
+                            <th>Km</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of vehicleData">
+                            <td>{{ data.code }}</td>
+                            <td>{{ data.model }}</td>
+                            <td>{{ data.status }}</td>
+                            <td>{{ data.lastUpdate }}</td>
+                            <td>{{ data.mileage }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</main>
