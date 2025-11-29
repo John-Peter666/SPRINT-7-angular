@@ -26,3 +26,18 @@ app-login {
 .form-column {
     width: 450px; 
 }
+
+body {
+    /* 1. Imagem de Fundo do Mustang */
+    background-image: url('/img/tela-7.png'); /* Ajuste o caminho conforme sua estrutura de pastas */
+    
+    /* 2. Propriedades de Ajuste da Imagem */
+    background-size: cover;          /* Faz a imagem cobrir toda a área, cortando se necessário */
+    background-repeat: no-repeat;    /* Garante que a imagem não se repita */
+    background-attachment: fixed;    /* Fixa a imagem no viewport, ela não rola com o conteúdo */
+    background-position: center center; /* Centraliza a imagem no fundo */
+
+    /* 3. Reset de Margem/Padding */
+    margin: 0;                       /* Remove a margem padrão do body */
+    padding: 0;                      /* Remove o padding padrão do body */
+}

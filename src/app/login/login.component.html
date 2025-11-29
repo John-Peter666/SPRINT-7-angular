@@ -1,6 +1,19 @@
 <main class="login-container">
-  <div class="image-column">
-    <img src="img/ranger.png" alt="Ford Ranger" class="ranger-image">
+  <div class="video-column">
+    <!-- Vídeo READY SET FORD do YouTube -->
+    <div class="video-container">
+      <iframe 
+        width="100%" 
+        height="100%" 
+        src="https://www.youtube.com/embed/7pCmRmgqDDE?autoplay=1&&controls=0&loop=1&playlist=7pCmRmgqDDE&showinfo=0&rel=0&modestbranding=1" 
+        title="READY SET FORD"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <div class="video-overlay"></div>
+    </div>
   </div>
 
   <div class="form-column">
@@ -19,7 +32,7 @@
         >
       </div>
 
-      <div class="input-group">
+      <div class="input-group password-group">
         <input 
           [type]="showPassword ? 'text' : 'password'" 
           placeholder="Insira sua senha" 
@@ -27,6 +40,9 @@
           name="password" 
           required
         >
+        <span class="toggle-password" (click)="togglePasswordVisibility()">
+          {{ showPassword ? '🙈' : '👁️' }}
+        </span>
       </div>
 
       <div class="auto-login-toggle">
@@ -34,10 +50,14 @@
         <input type="checkbox" [(ngModel)]="autoLogin" name="autoLogin">
       </div>
 
-      <button type="submit" class="btn-login" >
+      <button type="submit" class="btn-login">
         Entrar
       </button>
     </form>
+
+    <a routerLink="/register" class="create-account">
+      Criar nova conta
+    </a>
     
     <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
   </div>

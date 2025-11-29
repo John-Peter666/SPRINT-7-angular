@@ -2,7 +2,8 @@
     <div class="navbar">
         <img src="img/ford.png" alt="Logo Ford" class="ford-logo-home">
         
-        <nav>
+        <nav class="nav-content">
+            <a routerLink="/ofertas" class="nav-link">Ofertas</a>
             <a routerLink="/dashboard" class="nav-link">Dashboard</a>
             <a routerLink="/home" class="nav-link">Home</a>
         </nav>
@@ -76,6 +77,21 @@
                 </table>
             </div>
         </div>
+<input 
+    type="text" 
+    placeholder="Buscar por código do veículo..." 
+    [(ngModel)]="tableSearchQuery" 
+    (keyup)="filterTableData()" 
+    class="table-search-input"
+    list="vehicle-codes"
+>
 
+<!-- Joga essa porra aqui logo depois do input -->
+<datalist id="vehicle-codes">
+    <option value="RANGER2024001">Ford Ranger</option>
+    <option value="MUSTANG2024001">Ford Mustang</option>
+    <option value="TERRITORY2024001">Ford Territory</option>
+    <option value="BRONCO2024001">Ford Bronco Sport</option>
+</datalist>
     </div>
 </main>

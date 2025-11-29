@@ -1,20 +1,52 @@
 <main class="home-container">
+
+    <!-- Navbar fixa -->
     <div class="navbar">
         <img src="img/ford.png" alt="Logo Ford" class="ford-logo-home">
-        
-        <nav>
+        <nav id="dashboard-text">
             <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+            <a routerLink="/ofertas" class="nav-link">Ofertas</a>
         </nav>
-        
-        <button class="btn-logout" (click)="logout()">
-            Sair
-        </button>
+        <button class="btn-logout" (click)="logout()">Sair</button>
     </div>
 
+    <!-- Conteúdo principal -->
     <div class="content-overlay">
         <div class="welcome-card">
             <h1>Sistema de Gestão FORD</h1>
-            <p>Olá, admin! Seja bem-vindo(a)!</p>
+
+            <!-- CARROSSEL DE SLIDES -->
+            <div class="carousel-container">
+                <button class="carousel-btn prev" (click)="prevSlide()">&#10094;</button>
+                <div class="carousel-slide">
+                    <img [src]="slides[currentSlide]" [alt]="'Slide ' + currentSlide">
+                </div>
+                <button class="carousel-btn next" (click)="nextSlide()">&#10095;</button>
+            </div>
+
+            <p>Confira as novidades!</p>
         </div>
     </div>
+
+    <!-- Barra inferior com redes sociais -->
+    <div class="welcome-bar">
+        <div class="bar-content">
+            <span class="welcome-text">
+                Seja bem-vindo {{ nomeUsuario }}. Tenha uma boa estadia na Ford Virtual!
+            </span>
+            <div class="social-links">
+                <a href="https://www.facebook.com/FordBrasil/" target="_blank" title="Facebook">
+                    <img src="img/facebook-50.png" alt="Facebook">
+                </a>
+                <a href="https://www.youtube.com/@fordbrasil" target="_blank" title="YouTube">
+                    <img src="img/youtube-squared-50.png" alt="YouTube">
+                </a>
+                <a href="https://www.instagram.com/fordbrasil/" target="_blank" title="Instagram">
+                    <img src="img/instagram-logo-50.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </div>
+
 </main>
+

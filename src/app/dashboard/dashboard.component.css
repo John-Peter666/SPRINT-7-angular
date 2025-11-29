@@ -2,7 +2,7 @@
     display: block;
     height: 100vh;
     width: 100vw;
-    background: url('/img/ranger.png') no-repeat center center/cover;
+    background: url('/img/tela-5.png') no-repeat center center/cover;
     position: relative;
     overflow: hidden;
 }
@@ -11,36 +11,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: rgba(0, 75, 144, 0.8);
+    padding: 15px 30px;
+    background-color: #042363;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: relative;
     z-index: 100;
+    
 }
 
+
 .ford-logo-home {
-    height: 30px;
+    height: 50px;
 }
 
 .nav-link {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    font-weight: 500;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
 }
 
 .btn-logout {
-    padding: 0.5rem 1rem;
-    background-color: transparent;
+    padding: 10px 10px;
+    background-color: #ff3b30;
     border: 1px solid white;
     color: white;
     cursor: pointer;
     border-radius: 4px;
     transition: background-color 0.3s;
+    font-family: 'Arial', sans-serif;
 }
 
 .btn-logout:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #e02a1f;
 }
 
 .dashboard-content {
@@ -57,11 +65,10 @@
 }
 
 .search-card {
-   
     background-color: white;
     padding: 1rem 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 51, 153, 0.7); /* sombra azul Ford mais clara e visível */
 }
 
 .search-card label {
@@ -83,13 +90,12 @@
 }
 
 .data-card {
-    
     flex: 1;
     background-color: white;
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 51, 153, 0.7); /* sombra azul Ford mais clara e visível */
     color: #333;
 }
 
@@ -107,7 +113,6 @@
 }
 
 .main-display {
-    
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 2rem;
@@ -118,7 +123,7 @@
     background-color: white;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 51, 153, 0.7); /* sombra azul Ford mais clara e visível */
 }
 
 .vehicle-image {
@@ -130,7 +135,7 @@
     background-color: white;
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 51, 153, 0.7); /* sombra azul Ford mais clara e visível */
     overflow-x: auto;
 }
 
@@ -151,7 +156,6 @@ table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.9rem;
-    
 }
 
 table th, table td {
