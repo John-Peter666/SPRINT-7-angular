@@ -1,0 +1,64 @@
+<div class="chat-wrapper" [class.open]="isOpen">
+  <!-- Botão flutuante -->
+  <button class="chat-button" (click)="toggleChat()">
+    <i class="fas fa-comment-dots"></i>
+  </button>
+
+  <!-- Balão de chat -->
+  <div class="chat-bubble">
+    <div class="chat-header">
+      <h4>Entre em contato conosco!</h4>
+      <button class="close-btn" (click)="toggleChat()">×</button>
+    </div>
+
+    <div class="chat-body">
+      <form (ngSubmit)="enviarContato()" #contatoForm="ngForm">
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input 
+            type="email" 
+            id="email"
+            [(ngModel)]="contato.email"
+            name="email"
+            placeholder="seu@email.com"
+            required
+            class="form-input"
+          >
+        </div>
+
+        <!-- Celular -->
+        <div class="form-group">
+          <label for="celular">Celular</label>
+          <input 
+            type="tel" 
+            id="celular"
+            [(ngModel)]="contato.celular"
+            name="celular"
+            placeholder="(11) 99999-9999"
+            required
+            class="form-input"
+          >
+        </div>
+
+        <!-- Mensagem -->
+        <div class="form-group">
+          <label for="mensagem">Mensagem</label>
+          <textarea 
+            id="mensagem"
+            [(ngModel)]="contato.mensagem"
+            name="mensagem"
+            placeholder="Estamos ansiosos para ouvir você!"
+            rows="4"
+            required
+            class="form-textarea"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" [disabled]="!contatoForm.valid">
+          Enviar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

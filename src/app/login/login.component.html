@@ -1,11 +1,10 @@
 <main class="login-container">
   <div class="video-column">
-    <!-- Vídeo READY SET FORD do YouTube -->
     <div class="video-container">
       <iframe 
         width="100%" 
         height="100%" 
-        src="https://www.youtube.com/embed/7pCmRmgqDDE?autoplay=1&&controls=0&loop=1&playlist=7pCmRmgqDDE&showinfo=0&rel=0&modestbranding=1" 
+        src="https://www.youtube.com/embed/7pCmRmgqDDE?autoplay=1&&controls=1&loop=1&playlist=7pCmRmgqDDE&showinfo=0&rel=0&modestbranding=1" 
         title="READY SET FORD"
         frameborder="0" 
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -32,6 +31,7 @@
         >
       </div>
 
+      <!-- APENAS UMA DIV password-group -->
       <div class="input-group password-group">
         <input 
           [type]="showPassword ? 'text' : 'password'" 
@@ -41,7 +41,7 @@
           required
         >
         <span class="toggle-password" (click)="togglePasswordVisibility()">
-          {{ showPassword ? '🙈' : '👁️' }}
+          <i class="fas" [ngClass]="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
         </span>
       </div>
 
