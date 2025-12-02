@@ -17,6 +17,7 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
+  aceitaLGPD: boolean = false; //  ADICIONADO
 
   errorMessage: string = '';
   successMessage: string = '';
@@ -31,13 +32,21 @@ export class RegisterComponent {
     this.errorMessage = '';
     this.successMessage = '';
 
+    // Validação dos campos obrigatórios
     if (!this.name || !this.email || !this.password || !this.confirmPassword) {
       this.errorMessage = 'Preencha todos os campos.';
       return;
     }
 
+    // Validação da senha
     if (this.password !== this.confirmPassword) {
       this.errorMessage = 'As senhas não coincidem.';
+      return;
+    }
+
+    //  VALIDAÇÃO DA LGPD (NOVO)
+    if (!this.aceitaLGPD) {
+      this.errorMessage = 'Você precisa concordar com os termos da LGPD para se registrar!';
       return;
     }
 

@@ -20,19 +20,32 @@
                [(ngModel)]="confirmPassword" name="confirmPassword" required>
       </div>
 
+      <!-- Checkbox LGPD obrigatório -->
+      <div class="lgpd-checkbox">
+        <label>
+          <input 
+            type="checkbox" 
+            [(ngModel)]="aceitaLGPD" 
+            name="aceitaLGPD"
+            required
+          >
+          Concordo com os termos da LGPD (Lei Geral de Proteção de Dados)
+        </label>
+      </div>
+
       <!-- botão chama a função explicitamente -->
       <button class="btn-register" type="button" (click)="register()">Registrar</button>
     </form>
 
     <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
-    <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+    <p *ngIf="successMessage" class="successMessage">{{ successMessage }}</p>
 
     <!-- link convertido para botão que chama o método goToLogin() -->
     <button type="button" class="back-link" (click)="goToLogin()">Voltar ao Login</button>
 
     <!-- LGPD -->
     <p class="lgpd-text">
-      Ao se registrar, você concorda com nossa 
+       
       <a href="#" (click)="openLGPD($event)">Política de Privacidade (LGPD)</a>.
     </p>
 
@@ -57,11 +70,9 @@ A Lei estabelece uma estrutura legal de direitos dos(as) titulares de dados pess
 <br><br>
 Documento base:  Guia de Boas Práticas para Implementação na Administração Pública Federal da Lei Geral de Proteção de Dados, documento elaborado pelos diferentes órgãos que compõem o Comitê Central de Governança de Dados e que contém orientações sobre as atribuições e atuação do Controlador, do Operador e do Encarregado, bem como da Autoridade Nacional de Proteção de Dados (ANPD) e versa, ainda, sobre os direitos fundamentais dos(as) cidadãos(ãs) titulares dos dados, aborda hipóteses de tratamento dos dados e sua realização, indica o ciclo de vida do tratamento dos dados pessoais e apresenta boas práticas em segurança da informação.
           </p>
-         
         </div>
         <button class="btn-close" (click)="closeLGPD()">Fechar</button>
       </div>
     </div>
-
   </div>
 </main>

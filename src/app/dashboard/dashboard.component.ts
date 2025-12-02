@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
         this.vehiclesList = res.vehicles;
         this.availableVehicles = this.vehiclesList.map(v => v.vehicle);
         
-        // 👇 ADICIONA ISSO PARA VER TODOS OS DADOS DOS VEÍCULOS
+        //  ADICIONA ISSO PARA VER TODOS OS DADOS DOS VEÍCULOS
         console.log('=== DADOS COMPLETOS DOS VEÍCULOS ===');
         console.log('Lista completa:', this.vehiclesList);
         
@@ -125,7 +125,7 @@ filterTableData() {
     if (vehicleDataMap[vin]) {
         this.vehicleData = [vehicleDataMap[vin]];
         
-        // 👇 AQUI MUDA O VEÍCULO SELECIONADO NO DROPDOWN
+        //  AQUI MUDA O VEÍCULO SELECIONADO NO DROPDOWN
         this.selectedVehicle = vehicleDataMap[vin].model;
         this.fetchDataForDashboard(this.selectedVehicle);
     } else {
