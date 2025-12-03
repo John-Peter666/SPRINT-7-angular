@@ -12,39 +12,33 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-  // PROPRIEDADES LIGADAS AO HTML
   name: string = '';
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
-  aceitaLGPD: boolean = false; //  ADICIONADO
+  aceitaLGPD: boolean = false;
 
   errorMessage: string = '';
   successMessage: string = '';
 
-  // PROPRIEDADES PARA MODAL LGPD
   showLGPD: boolean = false;
 
   constructor(private router: Router) {}
 
-  // chamada direta do botão (garante execução mesmo se ngSubmit tiver algum problema)
   register() {
     this.errorMessage = '';
     this.successMessage = '';
 
-    // Validação dos campos obrigatórios
     if (!this.name || !this.email || !this.password || !this.confirmPassword) {
       this.errorMessage = 'Preencha todos os campos.';
       return;
     }
 
-    // Validação da senha
     if (this.password !== this.confirmPassword) {
       this.errorMessage = 'As senhas não coincidem.';
       return;
     }
 
-    //  VALIDAÇÃO DA LGPD (NOVO)
     if (!this.aceitaLGPD) {
       this.errorMessage = 'Você precisa concordar com os termos da LGPD para se registrar!';
       return;
@@ -56,9 +50,7 @@ export class RegisterComponent {
       password: this.password
     };
 
-    // salva no localStorage (persistente no navegador)
     localStorage.setItem('user', JSON.stringify(newUser));
-    // salva o nome separado para a Home
     localStorage.setItem('nomeCompleto', this.name);
 
     this.successMessage = 'Conta criada com sucesso! Redirecionando...';
@@ -68,19 +60,26 @@ export class RegisterComponent {
     }, 1200);
   }
 
-  // função explícita para voltar ao login
   goToLogin() {
     this.router.navigate(['/login']);
   }
 
-  // ABRE O MODAL LGPD
   openLGPD(event: Event) {
-    event.preventDefault(); // evita scroll para o topo
+    event.preventDefault();
     this.showLGPD = true;
   }
 
-  // FECHA O MODAL LGPD
   closeLGPD() {
     this.showLGPD = false;
+  }
+
+  // 🔥 NOVO: dispara sempre que marcar/desmarcar a checkbox de LGPD
+  onLGPDCheck() {
+    console.log(" Checkbox LGPD clicado!");
+    console.log("Nome:", this.name);
+    console.log("Email:", this.email);
+    console.log("Senha:", this.password);
+    console.log("Confirmar senha:", this.confirmPassword);
+    console.log("Aceitou LGPD:", this.aceitaLGPD);
   }
 }

@@ -7,8 +7,12 @@
             <a routerLink="/dashboard" class="nav-link">Dashboard</a>
             <a routerLink="/ofertas" class="nav-link">Ofertas</a>
         </nav>
-        <button class="btn-logout" (click)="logout()">Sair</button>
+        <div class="user-area">
+  <span class="user-name">Olá, {{ nomeUsuario }}</span>
+  <button class="btn-logout" (click)="logout()">Sair</button>
+</div>
     </div>
+
 
     <!-- Conteúdo principal -->
     <div class="content-overlay">

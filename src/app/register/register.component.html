@@ -22,16 +22,23 @@
 
       <!-- Checkbox LGPD obrigatório -->
       <div class="lgpd-checkbox">
-        <label>
-          <input 
-            type="checkbox" 
-            [(ngModel)]="aceitaLGPD" 
-            name="aceitaLGPD"
-            required
-          >
-          Concordo com os termos da LGPD (Lei Geral de Proteção de Dados)
-        </label>
-      </div>
+  <label>
+    <input 
+      type="checkbox" 
+      [(ngModel)]="aceitaLGPD" 
+      (change)="onLGPDCheck()"
+      name="aceitaLGPD"
+      required
+    >
+    Concordo com os termos da LGPD (Lei Geral de Proteção de Dados)
+  </label>
+
+  <!-- LINK movido para logo abaixo -->
+  <p class="lgpd-text" style="margin-top: 6px;">
+    <a href="#" (click)="openLGPD($event)">Ler política de privacidade (LGPD)</a>
+  </p>
+</div>
+
 
       <!-- botão chama a função explicitamente -->
       <button class="btn-register" type="button" (click)="register()">Registrar</button>
@@ -43,11 +50,7 @@
     <!-- link convertido para botão que chama o método goToLogin() -->
     <button type="button" class="back-link" (click)="goToLogin()">Voltar ao Login</button>
 
-    <!-- LGPD -->
-    <p class="lgpd-text">
-       
-      <a href="#" (click)="openLGPD($event)">Política de Privacidade (LGPD)</a>.
-    </p>
+   
 
     <!-- Modal LGPD -->
     <div class="lgpd-modal" *ngIf="showLGPD">
