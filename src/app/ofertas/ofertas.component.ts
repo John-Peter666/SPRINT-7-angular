@@ -25,14 +25,13 @@ interface Carro {
   styleUrls: ['./ofertas.component.css']
 })
 export class OfertasComponent {
-  // Use a mesma chave que você salvou em Register/Home (ex: 'nomeCompleto')
   nomeUsuario = (typeof window !== 'undefined' && localStorage.getItem('nomeCompleto')) || 'Usuário';
 
   carros: Carro[] = [
     {
       nome: 'XL Cabine',
       preco: 280000,
-      imagem: 'img/XL Cabine.jpg', // ajuste conforme sua pasta de assets
+      imagem: 'img/XL Cabine.jpg',
       selected: false,
       alturaCacamba: 540,
       alturaVeiculo: 1850,
@@ -46,7 +45,7 @@ export class OfertasComponent {
     {
       nome: 'xls 2.2 diesel',
       preco: 220000,
-      imagem: 'img/xls 2.2 diesel.jpg', // ajuste conforme sua pasta de assets
+      imagem: 'img/xls 2.2 diesel.jpg',
       selected: false,
       alturaCacamba: 510,
       alturaVeiculo: 1830,
@@ -83,17 +82,19 @@ export class OfertasComponent {
     this.router.navigate(['/login']);
   }
 
-toggleCarSelection(carro: Carro) {
-  carro.selected = !carro.selected;
-  this.carrosSelecionados = this.carros.filter(c => c.selected);
-
-  if (this.carrosSelecionados.length > 2) {
-    // desalimenta a última seleção
-    carro.selected = false;
+  toggleCarSelection(carroSelecionado: Carro) {
+    if (carroSelecionado.selected) {
+      carroSelecionado.selected = false;
+    } else if (this.carrosSelecionados.length >= 2) {
+      this.carrosSelecionados[0].selected = false;
+      carroSelecionado.selected = true;
+    } else {
+      carroSelecionado.selected = true;
+    }
+    
     this.carrosSelecionados = this.carros.filter(c => c.selected);
-    alert('Selecione no máximo 2 carros para comparar.');
   }
-}
+
   comparar() {
     if (this.carrosSelecionados.length !== 2) {
       alert('Selecione exatamente 2 carros para comparar.');
